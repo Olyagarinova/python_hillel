@@ -105,22 +105,22 @@ import random
 # {'name': 'Artem', 'age': 50}],'Lviv': [{'name': 'Vladimir', 'age': 32 }, {'name': 'Dmitriy', 'age': 21}] }
 
 
-data = [
-    {'name': 'Viktor', 'city': 'Kiev', 'age': 30},
-    {'name': 'Maksim', 'city': 'Dnepr', 'age': 20},
-    {'name': 'Vladimir', 'city': 'Lviv', 'age': 32},
-    {'name': 'Andrey', 'city': 'Kiev', 'age': 34},
-    {'name': 'Artem', 'city': 'Dnepr', 'age': 50},
-    {'name': 'Dmitriy', 'city': 'Lviv', 'age': 21}]
-
-
-
-res = {}
-for x in data:
-    copy_dict = x.copy()
-    del copy_dict["city"]
-    res.setdefault(x['city'], []).append(copy_dict)
-print(res)
+# data = [
+#     {'name': 'Viktor', 'city': 'Kiev', 'age': 30},
+#     {'name': 'Maksim', 'city': 'Dnepr', 'age': 20},
+#     {'name': 'Vladimir', 'city': 'Lviv', 'age': 32},
+#     {'name': 'Andrey', 'city': 'Kiev', 'age': 34},
+#     {'name': 'Artem', 'city': 'Dnepr', 'age': 50},
+#     {'name': 'Dmitriy', 'city': 'Lviv', 'age': 21}]
+#
+#
+#
+# res = {}
+# for x in data:
+#     copy_dict = x.copy()
+#     del copy_dict["city"]
+#     res.setdefault(x['city'], []).append(copy_dict)
+# print(res)
 # ______________________
 
 # # 7) У вас есть последовательность строк. Необходимо определить наиболее часто встречающуюся строку в последовательности.
