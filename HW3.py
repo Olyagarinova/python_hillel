@@ -9,7 +9,7 @@ from functools import wraps
 #     @wraps(func)
 #     def inner(arg):
 #         res = 100 % func(arg)
-#         if res == 0:
+#         if not res:
 #             print("We are OK!")
 #         else:
 #             print(f"Bad news guys, we got {res}")
@@ -35,10 +35,9 @@ from functools import wraps
 #     @wraps(func)
 #     def inner(a):
 #         arg = func(a)
-#         value_type = type(arg)
-#         if value_type == int:
+#         if isinstance(arg, int): #Про isinstance и разницу между ней и type не знала. Уже ознакомилась.
 #             print(arg)
-#         elif value_type == str:
+#         elif isinstance(arg, str):
 #             raise ValueError("string type is not supported")
 #     return inner
 #
@@ -61,28 +60,35 @@ from functools import wraps
 # Если значение берется из переменной cache, вывести сообщение «Used cache with counter = {}» и
 # количество раз обращений в cache.
 
-
-
-def my_decorator(func):
-    cache = {}
-
-    def wrapper(a):
-        if a not in cache:
-            return arg(arg)
-        else:
-            print("Used cache with counter = {}")
-    return wrapper
-
-@my_decorator
-def test(arg):
-    return arg*2
-
-
-# res = test(arg)
-# print(res)
-
-test(2)
-
-
-
-
+#
+# def my_decotator(f):
+#     cache = {}
+#
+#     @wraps(f)
+#     def wrapper(*args):
+#         if args in cache:
+#             wrapper.cache_calls += 1
+#             print(f"Used cache with counter = {wrapper.cache_calls}")
+#             return cache[args]
+#         else:
+#             wrapper.func_calls += 1
+#             cache[args] = f(*args)
+#             print(f"Function executed with counter = {wrapper.func_calls}, function result = {cache[args]}")
+#             return cache[args]
+#
+#     wrapper.func_calls = 0
+#     wrapper.cache_calls = 0
+#
+#     return wrapper
+#
+#
+# @my_decotator
+# def addition(a, b):
+#     """Add a + b function"""
+#     return a+b
+#
+#
+# addition(1, 1)
+# addition(1, 2)
+# addition(1, 2)
+# addition(1, 1)
